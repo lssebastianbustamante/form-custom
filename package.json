@@ -1,0 +1,13 @@
+{
+  "name": "form-leads",
+  "version": "0.0.16",
+  "private": true,
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/google.maps": "^3.58.1"
+  },
+  "dependencies": {
+    "@react-google-maps/api": "^2.20.6",
+    "react-select": "^5.8.1"
+  }
+}

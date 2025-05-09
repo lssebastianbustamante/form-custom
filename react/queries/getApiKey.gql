@@ -1,0 +1,5 @@
+query getApiKey {
+  logistics {
+    googleMapsKey
+  }
+}

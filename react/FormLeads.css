@@ -1,0 +1,601 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+
+.popupStyles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popupContentContainer {
+  padding: 15px 5px 20px 20px;
+  overscroll-behavior: contain;
+}
+
+.popupContentContainer {
+  max-height: 70vh;
+  overflow-y: scroll;
+  box-sizing: border-box;
+
+  @media screen and (min-width: 64rem) {
+    max-height: 90vh;
+  }
+}
+
+.popupContentStyles {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 8.39px 9.58px 7.19px 0px #0000002b;
+  width: 100%;
+  max-width: 95%;
+  position: relative;
+  margin: 0 10px;
+  max-width: 740px;
+  padding: 10px 5px;
+
+  @media screen and (min-width: 64rem) {
+    max-width: 700px;
+  }
+}
+
+.popupContentStyles::-webkit-scrollbar,
+.popupContentContainer::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+
+.popupContentStyles::-webkit-scrollbar-track,
+.popupContentContainer::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.popupContentStyles::-webkit-scrollbar-thumb,
+.popupContentContainer::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  border: 1px solid transparent;
+  background-clip: content-box;
+  background-color: #ababab;
+}
+
+.popupContentHeader {
+  display: flex  ;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formLeadButtonClose {
+  border: none;
+  background: none;
+  position: absolute;
+  right: 0px;
+  top: 28px;
+  z-index: 9;
+  cursor: pointer !important;
+
+  @media screen and (max-width: 767px) {
+      border: none;
+      background: none;
+      display: flex;
+      position: absolute;
+      right: 0;
+      top: -5px;
+  }
+}
+
+.formLeadForm {
+  text-align: center;
+  max-width: 317px;
+  margin: 0 auto;
+}
+
+.formLeadTitle {
+  font-family: Mdlz, sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+  color: #4f2170;
+  padding-left: 30px;
+  margin-bottom: 0;
+  padding-right: 0;
+
+  @media screen and (min-width: 64rem) {
+    margin-bottom: 26px;
+    padding-right: 30px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding-right: 30px !important;
+
+  }
+}
+
+.formLeadSubtitle {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.97px;
+  text-align: center;
+  color: #4f2170;
+  padding: 0 30px;
+  margin-top: 13px;
+
+  @media screen and (min-width: 64rem) {
+    margin-top: 18px;
+    margin-bottom: 26px;
+  }
+}
+
+.formLeadinputWrapper {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: 12px 0;
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+}
+
+.formLeadLabel {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.3px;
+  text-align: left;
+  color: #767676;
+}
+
+.formLeadInput {
+  font-size: 16px;
+  background-color: #f0eef2;
+  height: 40px;
+  border-radius: 10px;
+  border: 0;
+  padding: 8px 12px;
+  margin-top: 10px;
+  font-family: Calibri;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
+
+
+}
+
+.reactSelectContainer {
+  background-color: #f0eef2;
+}
+
+.formLeadSelect {
+  background-color: #f0eef2;
+  height: 40px;
+  border-radius: 10px;
+  border: 0;
+  padding: 8px 12px;
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 18.3px;
+  text-align: left;
+  font-weight: 700;
+  color: #4f2170;
+  cursor: pointer;
+}
+
+.formLeadInput::placeholder {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18.3px;
+  text-align: left;
+}
+
+.formLeadSubmitBtn {
+  border: 1px solid #4f2170;
+  background-color: #4f2170;
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 19.53px;
+  color: #fff;
+  border-radius: 30px;
+  max-width: 316px;
+  width: 100%;
+  height: 55px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: Calibri, sans-serif;
+}
+
+.formLeadSubmitBtn:disabled {
+  border: transparent;
+  background-color: #bcbcbc;
+}
+
+.formLeadBannerRegister {
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 0;
+  cursor: pointer;
+}
+
+.formLeadBannerContainer,
+.formLeadBannerContainerArg {
+.formLeadBannerContainer {
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 8px;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 0;
+  }
+}
+
+.formLeadBannerContainerArg {
+  cursor: default;
+}
+
+.formLeadBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formLeadBannerDesktop {
+  display: none;
+
+  @media screen and (min-width: 64rem) {
+    display: block;
+  }
+}
+
+.formLeadBannerMobile {
+  @media screen and (min-width: 64rem) {
+    display: none;
+  }
+}
+
+/* CHECKBOX --> */
+.formLeadCheckbox {
+  position: relative;
+  width: 100%;
+  height: 75px;
+  display: grid;
+  grid-template-columns: 0fr 1fr;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 27px;
+  margin-top: 20px;
+  align-items: flex-start;
+  margin-bottom: 0;
+}
+
+.formLeadCheckbox input[type='checkbox'] {
+  display: none;
+}
+
+.formLeadCheckbox .formLeadError {
+  left: 11px;
+}
+.formLeadCheckbox .formLeadCheckmark {
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border: 2px solid #4f2170;
+  /* Color púrpura */
+  border-radius: 4px;
+  display: inline-block;
+  margin: 0 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type='checkbox']:checked+.formLeadCheckmark {
+  background-color: #4f2170;
+  /* Fondo púrpura cuando está seleccionado */
+  border-color: #4f2170;
+}
+
+.formLeadCheckmark::after {
+  content: '';
+  position: absolute;
+  display: none;
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+ input[type='checkbox']:checked+.formLeadCheckmark::after {
+  display: block;
+}
+
+
+.formLeadCheckbox a:hover {
+  text-decoration: underline;
+}
+.formLeadCheckboxContainer {
+  position: absolute;
+    top: 0;
+    width: 13%;
+    justify-content: center;
+    display: flex;
+}
+.formLeadCheckboxText {
+  position: absolute;
+  top: -5px;
+  width: 88%;
+  right: 0;
+}
+.formLeadCheckboxText,
+.formLeadCheckboxLink {
+  text-align: left;
+  font-family: Calibri;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18.3px;
+  color: black;
+}
+
+.formLeadCheckboxLink {
+  color: #4f2170;
+  text-decoration: underline;
+}
+}
+/* <--- CHECKBOX  */
+
+/* ERROR --> */
+.formLeadErrorTyc {
+  padding-left: 40px;
+}
+
+.formLeadError {
+  position: absolute;
+  bottom: 0;
+  color: red;
+  margin-block: 0.2rem;
+  text-align: left;
+  font-size: 13px;
+  height: 15px;
+  margin-bottom: 0;
+}
+
+.formLeadErrorGeneral {
+  text-align: center;
+}
+
+.formLeadInputError {
+  outline: 1px solid red;
+}
+
+.formLeadBtnError {
+  outline: 1px solid red;
+  outline-offset: 2px;
+}
+
+/* <--- ERROR  */
+
+
+.containerBlockInfoForm {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem 0;
+  gap: 1rem;
+  margin: 0 0 .75rem;
+
+  @media screen and (max-width: 767px) {
+    margin: 0;
+    gap: .5rem;
+  }
+}
+
+.titleInfoForm,
+.subTitleInfoForm {
+  margin: 0;
+  color: #fff;
+
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
+}
+
+.titleInfoForm {
+  font-family: Mdlz, sans-serif;
+  font-size: 32px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+  }
+}
+
+.subTitleInfoForm {
+  font-weight: 500;
+  font-size: 18px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+.buttonOpenModal {
+  min-width: 170px;
+  border-color: transparent;
+  border-radius: 20px;
+  color: #ffffff;
+  min-height: 2rem;
+  padding-top: 0.25em;
+  padding-bottom: 0.32em;
+  border: none;
+  text-align: center;
+  background-color: #4f2170;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: Calibri, sans-serif;
+  font-weight: bold;
+
+}
+
+.finishContainer {
+  text-align: center;
+}
+
+
+.formLeadSubmitBtn {
+  border: 1px solid #4f2170;
+  background-color: #4f2170;
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.53px;
+  color: #fff;
+  border-radius: 30px;
+  max-width: 316px;
+  width: 100%;
+  height: 55px;
+  cursor: pointer;
+}
+
+.containerBlockInfoFormCustom {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem 0;
+  gap: 1rem;
+  margin: 0 0 .75rem;
+
+  @media screen and (max-width: 767px) {
+    margin: 0;
+    gap: .5rem;
+  }
+}
+
+.titleInfoFormCustom,
+.subTitleInfoFormCustom {
+  margin: 0;
+  color: #fff;
+
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
+}
+
+.titleInfoFormCustom {
+  font-family: Mdlz, sans-serif;
+  font-size: 32px;
+  text-align: center;
+  padding: 0 10px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+  }
+}
+
+.subTitleInfoFormCustom {
+  font-weight: 500;
+  font-size: 18px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+.buttonOpenModalCustom {
+  border-radius: 15px;
+  padding: .5rem 2.5rem;
+  border: none;
+  text-align: center;
+  color: #4f2170;
+  cursor: pointer;
+  font-family: Mdlz, sans-serif;
+}
+
+.buttonFeedback {
+  border: 1px solid #4f2170;
+  background-color: #4f2170;
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.53px;
+  color: #fff;
+  border-radius: 30px;
+  max-width: 316px;
+  width: 100%;
+  height: 55px;
+  cursor: pointer;
+}
+
+.feedbackLeadSubtitle {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.97px;
+  text-align: center;
+  color: #4f2170;
+  padding: 0 30px;
+
+  @media screen and (min-width: 64rem) {
+    margin-top: 18px;
+    margin-bottom: 26px;
+  }
+}
+
+.fallbackLeadTitle {
+  font-family: Mdlz, sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+  color: #4f2170;
+  padding-left: 30px;
+  margin-bottom: 0;
+  padding-right: 0;
+
+  @media screen and (min-width: 64rem) {
+    margin-bottom: 26px;
+    padding-right: 30px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding-right: 30px !important;
+
+  }
+}
+
+.containerBlockFeedback {
+  width: 100%;
+  padding: 1rem 0;
+  text-align: center;
+
+
+  @media screen and (max-width: 767px) {
+    margin: 0;
+  }
+}
