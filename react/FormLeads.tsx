@@ -1,6 +1,5 @@
 import React, { Suspense, useState, useEffect } from 'react'
-import { useCssHandles } from 'vtex.css-handles'
-import { useRuntime } from 'vtex.render-runtime'
+import { useCssHandles } from './hook/useCssHandles'
 
 
 import * as LazyComponents from './components/lazyComponents'
@@ -52,10 +51,10 @@ const FormLeads = ({
   subTitleBlock = DEFAULT_PROPS.subTitleBlock,
   textButton = DEFAULT_PROPS.textButton,
   canonicalUrl = DEFAULT_PROPS.canonicalUrl,
-  tiposDeNegocio = DEFAULT_PROPS.tiposDeNegocio
+  tiposDeNegocio = DEFAULT_PROPS.tiposDeNegocio,
+  country: countryProp
 }: LeadRegisterPropsArg) => {
-  const { culture } = useRuntime()
-  const country = culture.country
+  const country = (countryProp as CountryCode) || 'ARG'
   const {handles} = useCssHandles(CSS_HANDLES)
   const formHook = useFormLead({canonicalUrl, dataEntity, country: country as CountryCode})
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>

@@ -1,9 +1,7 @@
 import type React from 'react'
 
 
-import { useCssHandles } from 'vtex.css-handles'
-
-
+import { useCssHandles } from '../hook/useCssHandles'
 
 
 interface ContainerFormProps {

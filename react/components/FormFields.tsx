@@ -12,7 +12,7 @@ import * as LazyComponents from './lazyComponents'
 
 import {  listadoTipoDeNegocios, mapProvincias } from '../utils'
 import { mapDistritos } from '../utils/mapProvincias'
-import { useCssHandles } from 'vtex.css-handles'
+import { useCssHandles } from '../hook/useCssHandles'
 import LoadingFallback from './LoadingFallback'
 import { FORM_FIELDS_ARG, FORM_FIELDS_COL, FORM_FIELDS_PE } from '../constants'
 

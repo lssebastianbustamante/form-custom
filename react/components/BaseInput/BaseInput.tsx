@@ -1,8 +1,8 @@
-import { IOMessage } from "vtex.native-types"
+import { FormattedMessage } from "react-intl"
 import { usePlaceholderMessage } from "../../hook/usePlaceholderMessage"
 import {  getInputMode } from "../../utils"
 import type {  FormFieldProps } from "../../typings/interfaces"
-import { useCssHandles } from "vtex.css-handles"
+import { useCssHandles } from "../../hook/useCssHandles"
 import { defineMessages } from "react-intl"
 
 // import { defineMessages } from "react-intl"
@@ -110,7 +110,7 @@ const BaseInput: React.FC<FormFieldProps> = (props) => {
     return (
       <div className={handles.formLeadinputWrapper}>
         <label className={handles.formLeadLabel} htmlFor={name}>
-          <IOMessage id={label} />
+          <FormattedMessage id={label} />
         </label>
         <input
           className={`${handles.formLeadInput} ${

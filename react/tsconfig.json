@@ -1,14 +1,13 @@
 {
-  "extends": "@vtex/tsconfig",
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "lib": ["es2017", "dom"],
+    "lib": ["es2019", "dom"],
     "jsx": "preserve",
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "target": "es2017",
-    "types": ["google.maps"]
+    "target": "es2019",
+    "types": ["google.maps", "node"]
   },
   "include": ["./typings/*.d.ts", "./**/*.tsx", "./**/*.ts"]
 }

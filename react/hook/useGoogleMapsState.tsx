@@ -1,24 +1,13 @@
-import { useState, useEffect } from 'react'
-import { useQuery } from 'react-apollo'
-import GET_API_KEY from '../queries/getApiKey.gql'
-import type { GoogleMapsState, GoogleMapsKeyData } from '../typings/googleMaps'
+import { useMemo } from 'react'
+import type { GoogleMapsState } from '../typings/googleMaps'
 
 export const useGoogleMapsState = (): GoogleMapsState => {
-  const [state, setState] = useState<GoogleMapsState>({
-    apiKey: '',
-    loading: true,
-    error: undefined
-  })
-
-  const { data, loading, error } = useQuery<GoogleMapsKeyData>(GET_API_KEY)
-
-  useEffect(() => {
-    setState({
-      apiKey: data?.logistics?.googleMapsKey || '',
-      loading,
-      error: error as Error | undefined
-    })
-  }, [data, loading, error])
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''
+  const state = useMemo<GoogleMapsState>(() => ({
+    apiKey,
+    loading: false,
+    error: apiKey ? undefined : new Error('Missing NEXT_PUBLIC_GOOGLE_MAPS_API_KEY')
+  }), [apiKey])
 
   return state
 }

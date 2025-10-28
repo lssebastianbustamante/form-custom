@@ -1,9 +1,8 @@
 import type React from 'react'
-import { IOMessage } from 'vtex.native-types'
+import { FormattedMessage, defineMessages } from 'react-intl'
 import { Close } from './icons'
 
-import { useCssHandles } from 'vtex.css-handles'
-import { defineMessages } from 'react-intl'
+import { useCssHandles } from '../hook/useCssHandles'
 
 interface FormLeadsModalProps {
   children: React.ReactNode
@@ -45,7 +44,7 @@ const FormLeadsModal: React.FC<FormLeadsModalProps> = ({
     <div className={handles.popupContentContainer}>
       <div className={handles.popupContentHeader}>
         <h2 className={handles.formLeadTitle}>
-          <IOMessage id={messages.modalTitle.id} />
+          <FormattedMessage id={messages.modalTitle.id} />
         </h2>
         <button
           type="button"
@@ -56,7 +55,7 @@ const FormLeadsModal: React.FC<FormLeadsModalProps> = ({
           <Close color="#EAAB5E" />
         </button>
         <p className={handles.formLeadSubtitle}>
-          <IOMessage id={messages.modalSubtitle.id} />
+          <FormattedMessage id={messages.modalSubtitle.id} />
         </p>
       </div>
 
