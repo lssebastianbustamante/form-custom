@@ -103,7 +103,7 @@ const FormFields: React.FC<FormFieldsProps> = ({
         : FORM_FIELDS_ARG.map(field => ({ ...field, type: field.type as FieldType }))
 
   return (
-    <div className={handles.formLeadForm}>
+    <form className={handles.formLeadForm} onSubmit={handleSubmit}>
       {fields.map((field: FormFieldConfig) => {
         const fieldOptions =
           field.type === 'select' && isValidFieldName(field.name)
@@ -134,10 +134,6 @@ const FormFields: React.FC<FormFieldsProps> = ({
         type="submit"
         className={handles.formLeadSubmitBtn}
         disabled={!isValidFormToSubmit()}
-        onClick={(e) => {
-          e.preventDefault()
-          handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>)
-        }}
       >
         <FormattedMessage id="store/form-submit" defaultMessage="CONFIRMAR" />
       </button>
@@ -149,7 +145,7 @@ const FormFields: React.FC<FormFieldsProps> = ({
           {errors.submit}
         </p>
       )}
-    </div>
+    </form>
   )
 }
 

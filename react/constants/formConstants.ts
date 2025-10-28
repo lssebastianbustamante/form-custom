@@ -70,10 +70,10 @@ export const FORM_FIELDS_ARG = [
         name: 'altura',
         type: 'number',
         label: 'store/form.label.altura',
-        pattern: '[0-9]*',
+        pattern: '\\d*',
         required: true,
-        minLength: 0,
-        maxLength: 9999
+        minLength: 1,
+        maxLength: 4
     },
     {
         name: 'entreCalles',
@@ -87,9 +87,9 @@ export const FORM_FIELDS_ARG = [
         name: 'codigoPostal',
         type: 'number',
         label: 'store/form.label.codigoPostal',
-        pattern: '[0-9]*',
+        pattern: '\\d{4}',
         required: true,
-        minLength: 99,
+        minLength: 1000,
         maxLength: 9999
     },
     {
@@ -108,9 +108,9 @@ export const FORM_FIELDS_ARG = [
         type: 'number',
         label: 'store/form.label.telefono',
         required: true,
-        pattern: '\d{10}*',
+        pattern: '\\d{10}',
         maxLength: 9999999999,
-        minLength: 999999999
+        minLength: 1000000000
     },
     COMMON_FIELDS.email,
     COMMON_FIELDS.tyc
@@ -124,7 +124,7 @@ export const FORM_FIELDS_COL = [
         type: 'number',
         label: 'store/form.label.document',
         required: true,
-        pattern: '[0-9]*',
+        pattern: '\\d*',
 
     },
     {
@@ -141,9 +141,9 @@ export const FORM_FIELDS_COL = [
         type: 'number',
         label: 'store/form.label.telefono',
         required: true,
-        pattern: '\d{9}*',
+        pattern: '\\d{9}',
         maxLength: 999999999,
-        minLength: 99999999
+        minLength: 100000000
     },
     COMMON_FIELDS.email,
     COMMON_FIELDS.provincia,
@@ -158,8 +158,8 @@ export const FORM_FIELDS_PE = [
         type: 'number',
         label: 'store/form.label.document',
         required: true,
-        pattern: '[0-9]*',
-        minLength: 99999,
+        pattern: '\\d*',
+        minLength: 10000,
         maxLength: 999999999
     },
     {
@@ -176,9 +176,9 @@ export const FORM_FIELDS_PE = [
         type: 'number',
         label: 'store/form.label.telefono',
         required: true,
-        pattern: '\d{9}*',
+        pattern: '\\d{9}',
         maxLength: 999999999,
-        minLength: 99999999
+        minLength: 100000000
     },
     COMMON_FIELDS.email,
 

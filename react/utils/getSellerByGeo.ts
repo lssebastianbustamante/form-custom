@@ -12,26 +12,31 @@ type Coordinates = {
   longitud: number
 }
 
-export function getSellerByGeo(
+export async function getSellerByGeo(
   geo: Coordinates,
   country: string
 ): Promise<{ sellerId: string; sellerName: string }> {
-
-  return new Promise((res, rej) => {
-    fetch(
+  try {
+    const response = await fetch(
       `/api/checkout/pub/regions?country=${country}&geoCoordinates=${geo.longitud};${geo.latitud}`
     )
-      .then((r) => r.json())
-      .then((d: GetSellerByGeoResponse[]) => {
-        if (d[0].sellers.length > 0)
-          res({
-            sellerId: d[0]?.sellers[0].id,
-            sellerName: d[0]?.sellers[0].name
-          })
+    const data = (await response.json()) as GetSellerByGeoResponse[]
 
-        rej({
-          error: 'Sin distribuidor en la dirección ingresada.'
-        })
-      })
-  })
+    const first = data?.[0]
+    const seller = first?.sellers?.[0]
+
+    if (seller) {
+      return {
+        sellerId: seller.id,
+        sellerName: seller.name,
+      }
+    }
+
+    throw new Error('Sin distribuidor en la dirección ingresada.')
+  } catch (error) {
+    if (error instanceof Error) {
+      throw error
+    }
+    throw new Error('Sin distribuidor en la dirección ingresada.')
+  }
 }

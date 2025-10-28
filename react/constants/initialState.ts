@@ -66,8 +66,8 @@ export const createDistrictsIndex = (districts: ProvinciaData) => {
 
 export const loadDistricts = async (country: string) => {
   // Cargar datos según demanda
-  const districts = await import(`../utils/${country}-districts.json`)
-  return districts
+  const module = await import(`../utils/${country}-districts.json`)
+  return module.default ?? module
 }
 
 export type CountryCode = 'ARG' | 'COL' | 'PER';

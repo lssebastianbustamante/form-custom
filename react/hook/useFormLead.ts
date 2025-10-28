@@ -1,5 +1,6 @@
 import type React from 'react'
 import { useState, useCallback, useEffect } from 'react'
+import { defineMessages, useIntl } from 'react-intl'
 
 
 import type { ArgentinaFormData, ColombiaFormData, FormData, FormErrors, FormState, PeruFormData, SelectOption } from '../typings/interfaces'
@@ -92,6 +93,22 @@ export const useFormLead = (
 
 
     const { geocode } = useGeocodeAddress()
+    const intl = useIntl()
+
+    const messages = defineMessages({
+        submitRequired: {
+            id: 'store/form.error.submitRequired',
+            defaultMessage: 'Por favor, completa todos los campos obligatorios.'
+        },
+        submitGenericError: {
+            id: 'store/form.error.submitGeneric',
+            defaultMessage: 'Error al enviar el formulario. Por favor, inténtalo de nuevo más tarde.'
+        },
+        noSeller: {
+            id: 'store/form.error.noSeller',
+            defaultMessage: 'Sin distribuidor en la dirección ingresada'
+        }
+    })
     const { postEntry } = fetchDocument()
     const { getErrorMessage } = useErrorMessage()
     const [formState, setFormState] = useState<FormState>({
@@ -332,7 +349,7 @@ export const useFormLead = (
         if (!validationResult.isValid) {
             setErrors(prev => ({
                 ...prev,
-                submit: 'Por favor, completa todos los campos obligatorios.',
+                submit: intl.formatMessage(messages.submitRequired),
             }))
             return
         }
@@ -345,7 +362,7 @@ export const useFormLead = (
         if (!isValid) {
             setErrors(prev => ({
                 ...prev,
-                submit: 'Por favor, completa todos los campos obligatorios.'
+                submit: intl.formatMessage(messages.submitRequired)
             }))
             return
         }
@@ -358,7 +375,7 @@ export const useFormLead = (
             }))
 
             let geocoordinates = { latitud: 0, longitud: 0 }
-            let sellerName = 'Sin distribuidor en la dirección ingresada'
+            let sellerName = intl.formatMessage(messages.noSeller)
 
             try {
                 const formatAddress = ADDRESS_FORMATTERS[country];
@@ -397,7 +414,7 @@ export const useFormLead = (
             setFormState(prev => ({ ...prev, status: STATUS.IDLE }))
             setErrors(prev => ({
                 ...prev,
-                submit: 'Error al enviar el formulario. Por favor, inténtalo de nuevo más tarde.'
+                submit: intl.formatMessage(messages.submitGenericError)
             }))
         } finally {
             setFormState(prev => ({ ...prev, isSubmitting: false }))

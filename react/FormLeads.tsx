@@ -1,5 +1,4 @@
-import type React from 'react'
-import { Suspense, useState, useEffect } from 'react'
+import React, { Suspense, useState, useEffect } from 'react'
 import { useCssHandles } from 'vtex.css-handles'
 import { useRuntime } from 'vtex.render-runtime'
 
@@ -20,14 +19,25 @@ import { CountryCode, DEFAULT_PROPS, loadDistricts } from './constants/initialSt
 
 
 
-const ErrorBoundary: React.FC<{ children: React.ReactNode }> = ({
-  children
-}) => {
-  try {
-    return <>{children}</>
-  } catch (error) {
+class ErrorBoundary extends React.Component<any, { hasError: boolean }> {
+  constructor(props: any) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+
+  componentDidCatch(error: Error) {
     console.error('Error en FormLeads:', error)
-    return <div>Error al cargar el formulario</div>
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <div>Error al cargar el formulario</div>
+    }
+    return this.props.children as React.ReactElement
   }
 }
 const CSS_HANDLES = [
